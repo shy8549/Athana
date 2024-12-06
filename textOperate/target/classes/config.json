@@ -1,0 +1,26 @@
+{
+  "inputFile": "data/input.txt",
+  "outputFile": "data/output.txt",
+  "inputDelimiter": ",",
+  "outputDelimiter": ";",
+  "columns": [
+    {
+      "columnIndex": 2,
+      "operations": [
+        {
+          "type": "ENCRYPT",
+          "params": {
+            "method": "AES",
+            "key": "1234567890abcdef"
+          }
+        },
+        {
+          "type": "HASH",
+          "params": {
+            "algorithm": "SHA-256"
+          }
+        }
+      ]
+    }
+  ]
+}
