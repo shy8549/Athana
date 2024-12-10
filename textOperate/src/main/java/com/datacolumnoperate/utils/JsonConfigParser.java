@@ -2,19 +2,25 @@ package com.datacolumnoperate.utils;
 
 import com.datacolumnoperate.common.Config;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
+/**
+ * JsonConfigParser 负责解析 JSON 配置文件。
+ */
 public class JsonConfigParser {
-    public static Config parseConfig(String jsonFilePath) throws IOException {
-        byte[] jsonData = Files.readAllBytes(Paths.get(jsonFilePath));
-        ObjectMapper objectMapper = new ObjectMapper();
-        // 允许忽略未知属性
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        return objectMapper.readValue(jsonData, Config.class);
+    private static final ObjectMapper mapper = new ObjectMapper();
+
+    public static Config parse(String configPath) throws IOException {
+        File configFile = new File(configPath);
+        if (!configFile.exists()) {
+            throw new IOException("Config file does not exist at path: " + configPath);
+        }
+        try {
+            return mapper.readValue(configFile, Config.class);
+        } catch (IOException e) {
+            throw new IOException("Failed to parse config file: " + configPath, e);
+        }
     }
 }
-

@@ -1,11 +1,15 @@
 package com.datacolumnoperate.common;
 
 import java.util.List;
-import java.util.Map;
 
+/**
+ * 列操作配置类，定义每一列需要执行的操作及其参数。
+ */
 public class ColumnOperationConfig {
     private int columnIndex;
     private List<OperationConfig> operations;
+
+    // Getters and Setters
 
     public int getColumnIndex() {
         return columnIndex;
@@ -23,24 +27,11 @@ public class ColumnOperationConfig {
         this.operations = operations;
     }
 
-    public static class OperationConfig {
-        private OperationType type;
-        private Map<String, String> params;
-
-        public OperationType getType() {
-            return type;
-        }
-
-        public void setType(OperationType type) {
-            this.type = type;
-        }
-
-        public Map<String, String> getParams() {
-            return params;
-        }
-
-        public void setParams(Map<String, String> params) {
-            this.params = params;
-        }
+    @Override
+    public String toString() {
+        return "ColumnOperationConfig{" +
+                "columnIndex=" + columnIndex +
+                ", operations=" + operations +
+                '}';
     }
 }
