@@ -2,7 +2,7 @@ package com.datacolumnoperate.operations;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
+import com.datacolumnoperate.exceptions.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,7 +61,7 @@ public class TimeConvertOperationTest {
         // Missing "outputFormat"
 
         String input = "20231210120000";
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+        Exception exception = assertThrows(TimeConvertException.class, () -> {
             operation.execute(input, params);
         });
 
