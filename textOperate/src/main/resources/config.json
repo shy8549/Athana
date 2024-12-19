@@ -1,29 +1,23 @@
 {
-  "inputFile": "data/input.txt",
-  "outputFile": "data/output.txt",
+  "inputFile": "E:\\IdeaProjects\\Athana\\textOperate\\src\\main\\data\\input.txt",
+  "outputFile": "E:\\IdeaProjects\\Athana\\textOperate\\src\\main\\data\\output.txt",
   "inputDelimiter": ",",
-  "outputDelimiter": ";",
+  "outputDelimiter": "|",
   "columns": [
     {
-      "columnIndex": 2,
+      "columnIndex": 1,
       "operations": [
-        {
-          "type": "ENCRYPT",
-          "params": {
-            "method": "AES",
-            "key": "1234567890abcdef"
-          }
-        },
         {
           "type": "HASH",
           "params": {
-            "algorithm": "SHA-256"
+            "algorithm": "SHA-256",
+            "key": ""
           }
         }
       ]
     },
     {
-      "columnIndex": 4,
+      "columnIndex": 2,
       "operations": [
         {
           "type": "REGEX_REPLACE",
@@ -35,7 +29,43 @@
       ]
     },
     {
+      "columnIndex": 3,
+      "operations": [
+        {
+          "type": "SUBSTRING",
+          "params": {
+            "start": "3",
+            "end": "8"
+          }
+        }
+      ]
+    },
+    {
+      "columnIndex": 4,
+      "operations": [
+        {
+          "type": "SUBSTRING",
+          "params": {
+            "start": "1",
+            "end": "6"
+          }
+        }
+      ]
+    },
+    {
       "columnIndex": 5,
+      "operations": [
+        {
+          "type": "ENCRYPT",
+          "params": {
+            "method": "AES",
+            "key": "hljydydhbz_sjjm@"
+          }
+        }
+      ]
+    },
+    {
+      "columnIndex": 6,
       "operations": [
         {
           "type": "TIME_CONVERT",

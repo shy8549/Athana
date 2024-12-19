@@ -52,9 +52,10 @@ public class FileProcessor {
                 String[] columns = line.split(inputDelimiter, -1); // -1 保留空字符串
 
                 for (ColumnOperationConfig colConfig : columnConfigs) {
-                    int index = colConfig.getColumnIndex();
+                    // 调整列索引，从1开始
+                    int index = colConfig.getColumnIndex() - 1;
                     if (index < 0 || index >= columns.length) {
-                        logger.warn("Line {}: Column index {} is out of bounds for line: {}", lineNumber, index, line);
+                        logger.warn("Line {}: Column index {} (real file index {}) is out of bounds for line: {}", lineNumber, index, colConfig.getColumnIndex(), line);
                         continue;
                     }
 
@@ -68,7 +69,7 @@ public class FileProcessor {
                     }
 
                     for (OperationConfig opConfig : operations) {
-                        Operation operation = null;
+                        Operation operation;
                         try {
                             operation = operationFactory.getOperation(opConfig.getType());
                             processedValue = operation.execute(processedValue, opConfig.getParams());

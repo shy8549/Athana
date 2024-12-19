@@ -61,10 +61,10 @@ public class EncryptOperation implements Operation {
                     if (key == null || key.length() != 16) {
                         throw new IllegalArgumentException("AES encryption requires a 16-byte key.");
                     }
-                    Cipher aesCipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                    Cipher aesCipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
                     SecretKeySpec aesKey = new SecretKeySpec(key.getBytes(), "AES");
-                    IvParameterSpec aesIV = new IvParameterSpec(new byte[16]); // 16字节IV，全部为0字节
-                    aesCipher.init(Cipher.ENCRYPT_MODE, aesKey, aesIV);
+//                    IvParameterSpec aesIV = new IvParameterSpec(new byte[16]); // 16字节IV，全部为0字节
+                    aesCipher.init(Cipher.ENCRYPT_MODE, aesKey);
                     byte[] aesEncrypted = aesCipher.doFinal(input.getBytes());
                     return Base64.getEncoder().encodeToString(aesEncrypted);
 
