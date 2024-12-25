@@ -43,9 +43,7 @@ public class TimeConvertOperationTest {
         params.put("outputFormat", "MS");
 
         String input = "2023-12-10 12:00:00";
-        Exception exception = assertThrows(RuntimeException.class, () -> {
-            operation.execute(input, params);
-        });
+        Exception exception = assertThrows(RuntimeException.class, () -> operation.execute(input, params));
 
         String expectedMessage = "TIME_CONVERT operation failed.";
         String actualMessage = exception.getMessage();
@@ -61,9 +59,7 @@ public class TimeConvertOperationTest {
         // Missing "outputFormat"
 
         String input = "20231210120000";
-        Exception exception = assertThrows(TimeConvertException.class, () -> {
-            operation.execute(input, params);
-        });
+        Exception exception = assertThrows(TimeConvertException.class, () -> operation.execute(input, params));
 
         String expectedMessage = "Missing 'inputFormat' or 'outputFormat' parameter for TIME_CONVERT operation.";
         String actualMessage = exception.getMessage();
@@ -79,9 +75,7 @@ public class TimeConvertOperationTest {
         params.put("outputFormat", "yyyy-MM-dd HH:mm:ss");
 
         String input = "invalid_ms";
-        Exception exception = assertThrows(RuntimeException.class, () -> {
-            operation.execute(input, params);
-        });
+        Exception exception = assertThrows(RuntimeException.class, () -> operation.execute(input, params));
 
         String expectedMessage = "TIME_CONVERT operation failed.";
         String actualMessage = exception.getMessage();

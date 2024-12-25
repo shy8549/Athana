@@ -1,0 +1,106 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3">
+
+    <!-- 打包 ID -->
+    <id>bin</id>
+
+    <!-- 打包格式 -->
+    <formats>
+        <format>tar.gz</format>
+        <format>dir</format>
+    </formats>
+
+    <!-- 配置包含的文件 -->
+    <includeBaseDirectory>true</includeBaseDirectory>
+
+    <!-- 依赖项设置 -->
+    <dependencySets>
+        <dependencySet>
+            <!-- 将所有运行时依赖的 JAR 包放入 /libs 目录 -->
+            <outputDirectory>/libs</outputDirectory>
+            <scope>runtime</scope>
+        </dependencySet>
+    </dependencySets>
+
+<!--     配置额外文件
+    <files>
+        <file>
+            <source>src/main/resources/log4j2.xml</source>
+            <outputDirectory>/conf</outputDirectory>
+        </file>
+        <file>
+            <source>src/main/resources/config.json</source>
+            <outputDirectory>/conf</outputDirectory>
+        </file>
+        <file>
+            <source>src/main/resources/start.sh</source>
+            <outputDirectory>/bin</outputDirectory>
+        </file>
+        <file>
+            <outputDirectory>/logs</outputDirectory>
+        </file>
+    </files>-->
+
+    <!-- 配置额外文件 -->
+    <fileSets>
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>log4j2.xml</include>
+                <include>config.json</include>
+            </includes>
+            <outputDirectory>/conf</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>start.sh</include>
+            </includes>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/data</directory>
+            <includes>
+                <include>**</include>
+            </includes>
+            <outputDirectory>/data</outputDirectory>
+        </fileSet>
+
+        <!--<fileSet>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include></include>
+            </includes>
+            <outputDirectory>/logs</outputDirectory>
+        </fileSet>-->
+
+    </fileSets>
+
+
+    <!--<fileSets>
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <outputDirectory>/conf</outputDirectory>
+            <fileMode>0755</fileMode>
+            <includes>
+                <include>log4j2.xml</include>
+                <include>config.json</include>
+            </includes>
+            <filtered>true</filtered>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/resources</directory>
+            <outputDirectory>/bin</outputDirectory>
+            <fileMode>0755</fileMode>
+            <includes>
+                <include>start.sh</include>
+            </includes>
+            <lineEnding>unix</lineEnding>
+            <filtered>true</filtered>
+        </fileSet>
+        <fileSet>
+            <outputDirectory>/logs</outputDirectory>
+            <fileMode>0755</fileMode>
+        </fileSet>
+    </fileSets>-->
+
+</assembly>
