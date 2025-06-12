@@ -7,6 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="textOperate" />
+        <module name="transform" />
+        <module name="adapter" />
+        <module name="gpudf" />
       </profile>
     </annotationProcessing>
   </component>

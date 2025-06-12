@@ -1,9 +1,12 @@
 # Athana 为给自己使用的工具
 
-## Athana目前有两个模块
+## Athana目前有五个模块
 
 - dataMaker (造数工具)
 - textOperate (文本处理)
+- adapter (jstorm udf)
+- gpudf  (greenplum java udf)
+- transform (文件分发工具)
 
 ---
 
@@ -26,3 +29,14 @@ drwxrwxr-x. 2 gpadmin gpadmin   56 Dec 25 09:42 logs
 ```
 
 可对文本的列进行函数操作，目前包括时间转换，加密，截取，正则，哈希
+
+## adapter
+**说明**：jstorm 的 udf 以及自定义unit
+
+## gpudf
+**说明**：安装PL/java 后使用java udf
+
+## transform
+
+**说明**：现网环境禁用scp，ssh等工具后的文件分发工具。
+

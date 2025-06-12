@@ -5,6 +5,9 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/textOperate/pom.xml" />
+        <option value="$PROJECT_DIR$/adapter/pom.xml" />
+        <option value="$PROJECT_DIR$/gpudf/pom.xml" />
+        <option value="$PROJECT_DIR$/transform/pom.xml" />
       </list>
     </option>
   </component>
