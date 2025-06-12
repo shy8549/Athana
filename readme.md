@@ -1,6 +1,6 @@
 # Athana  自己使用的工具
 
-## Athana目前有五个模块
+## Athana  目前有五块
 
 - dataMaker (造数工具)
 - textOperate (文本处理)
