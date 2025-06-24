@@ -136,7 +136,7 @@ public class MySqlConnectTool extends DataFilterAdapter {
             //                System.out.println(rowData);
             return rowData;
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
             return null;
         }
 
@@ -181,7 +181,7 @@ public class MySqlConnectTool extends DataFilterAdapter {
 
             System.out.println(re);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
         }
 
     }

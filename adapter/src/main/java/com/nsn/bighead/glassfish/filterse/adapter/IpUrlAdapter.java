@@ -66,12 +66,12 @@ public class IpUrlAdapter extends DataFilterAdapter {
                 System.out.println("result = " + re);
             } catch (Exception ex43) {
                 System.out.println("ssss");
-                ex43.printStackTrace();
+                log.error("Exception occurred while running main()", ex43);
             }
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
         }
 
 

@@ -62,10 +62,10 @@ public class SubFromBackUtil extends DataFilterAdapter {
             DataFilterAdapter adapter = (DataFilterAdapter) Class.forName("com.nsn.bighead.glassfish.filterse.adapter.SubFromBackUtil").newInstance();
             adapter.init("4,11");
 //            String re = adapter.handleBuffer(data, "13689098765", 0, "MLTE_S1U_HTTP", "1,5");
-            String re = adapter.handleBuffer(data, "", 0, "MLTE_S1U_HTTP", "1,5");
+            String re = adapter.handleBuffer(data, "111", 0, "MLTE_S1U_HTTP", "1,5");
             System.out.println(re);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
         }
     }
 }

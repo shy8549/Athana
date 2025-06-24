@@ -4,9 +4,12 @@ import com.nsn.bighead.glassfish.filterse.handler.DataFilterAdapter;
 import java.math.BigInteger;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class IPHexConverter extends DataFilterAdapter {
     private static final long serialVersionUID = -1;
+    private static final Logger log = LogManager.getLogger(IPHexConverter.class);
 
     @Override
     public String handleBuffer(String[] data, String todo, int columnX, String service, String extPars) {
@@ -133,7 +136,7 @@ public class IPHexConverter extends DataFilterAdapter {
             System.out.println(adapter.handleBuffer(data, " ", 0, "MLTE_S1U_HTTP", "")); // invalidhex
             System.out.println(ipv6ToHex("fe80::dc48:23ff:fe8d:9687"));
         }catch (Exception e){
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
         }
     }
 }

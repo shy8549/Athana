@@ -7,8 +7,12 @@ import java.util.Date;
 import com.nokia.sai.stream.core.constants.Constants;
 import com.nokia.sai.stream.core.exception.AppException;
 import com.nokia.sai.stream.core.util.DateTimeUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ReportTime2DateUtil {
+
+	private static final Logger log = LogManager.getLogger(ReportTime2DateUtil.class);
 	/**
 	 * reportTime 字段处理 dateFormatType : 10=秒数, 11=毫秒数
 	 */
@@ -226,7 +230,7 @@ public class ReportTime2DateUtil {
 			d= translateReportTime2Date("2019-5-12 0:54:3",1);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.error("Exception occurred while running main()", e);
 		}
 		System.err.println(d.getTime());
 	}

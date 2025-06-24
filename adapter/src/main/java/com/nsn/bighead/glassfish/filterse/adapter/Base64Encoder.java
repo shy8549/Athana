@@ -62,7 +62,7 @@ public class Base64Encoder extends DataFilterAdapter {
             String re = adapter.handleBuffer(data, "375CF1702A3B52178108328E13518C25", 0, "MLTE_S1U_HTTP", "");
             System.out.println(re);
         }catch (Exception e){
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
         }
     }
 }

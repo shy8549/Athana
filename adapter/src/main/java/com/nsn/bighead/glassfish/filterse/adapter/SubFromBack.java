@@ -1,7 +1,8 @@
 package com.nsn.bighead.glassfish.filterse.adapter;
 
 import com.nsn.bighead.glassfish.filterse.handler.DataFilterAdapter;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 /**
  * @author: create by suhy
  * @version: v1.0
@@ -12,7 +13,7 @@ import com.nsn.bighead.glassfish.filterse.handler.DataFilterAdapter;
 public class SubFromBack extends DataFilterAdapter {
 
     private static final long serialVersionUID = -1;
-
+    private static final Logger log = LogManager.getLogger(SubFromBack.class);
 
     public static String getLast11Digits(String input) {
         // 检查输入是否为 null 或空
@@ -58,10 +59,11 @@ public class SubFromBack extends DataFilterAdapter {
         try {
             DataFilterAdapter adapter = (DataFilterAdapter) Class.forName("com.nsn.bighead.glassfish.filterse.adapter.SubFromBack").newInstance();
             adapter.init("");
-            String re = adapter.handleBuffer(data, "+861526547", 0, "MLTE_S1U_HTTP", "");
+//            String re = adapter.handleBuffer(data, "+8615265478901", 0, "MLTE_S1U_HTTP", "");
+            String re = adapter.handleBuffer(data, "+8610086", 0, "MLTE_S1U_HTTP", "");
             System.out.println(re);
         }catch (Exception e){
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
         }
     }
 }

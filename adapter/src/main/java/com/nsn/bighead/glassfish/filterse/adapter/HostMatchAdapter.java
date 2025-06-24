@@ -97,7 +97,7 @@ public class HostMatchAdapter extends DataFilterAdapter {
             return rowData;
 
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
             return null;
         }
     }
@@ -112,7 +112,7 @@ public class HostMatchAdapter extends DataFilterAdapter {
             String re = adapter.handleBuffer(data, "anydesk.com", 0, "MLTE_S1U_HTTP", "1,5");
             System.out.println(re);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
         }
     }
 

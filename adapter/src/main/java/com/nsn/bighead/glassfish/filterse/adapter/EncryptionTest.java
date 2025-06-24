@@ -5,9 +5,12 @@ import java.security.Key;
 import java.util.Base64;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class EncryptionTest extends DataFilterAdapter {
     private static final long serialVersionUID = -7763445057050257428L;
+    private static final Logger log = LogManager.getLogger(EncryptionTest.class);
     private Cipher cipher;
 
     public String handleBuffer(String[] data, String todo, int columnX, String service, String extPars) {
@@ -21,7 +24,7 @@ public class EncryptionTest extends DataFilterAdapter {
             passwordEnc = AESencrp.decrypt(extPars);
         }
         catch (Exception e1) {
-            e1.printStackTrace();
+            log.error("Exception occurred while running main()", e1);
         }
         try {
             Key securekey = getSecretKey(passwordEnc);
@@ -29,7 +32,7 @@ public class EncryptionTest extends DataFilterAdapter {
             this.cipher.init(1, securekey);
         }
         catch (Exception e) {
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
         }
     }
 
@@ -60,7 +63,7 @@ public class EncryptionTest extends DataFilterAdapter {
             return Base64.getEncoder().encodeToString(bt);
         }
         catch (Exception e) {
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
         }
         return "";
     }
@@ -91,7 +94,7 @@ public class EncryptionTest extends DataFilterAdapter {
             System.out.println("AES???????:" + re);
         }
         catch (Exception e) {
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
         }
     }
 }

@@ -146,8 +146,8 @@ public class AesEncodeAdapter extends DataFilterAdapter {
 
     public static void main(String[] args) {
         // System.out.println(System.getProperty("java.class.path"));
-        String xdrLing = "2024-11-05 15:57:48.734|2024-11-05 15:57:49.621|111|3|14|4659|4799|17759|45571||||460078457850390||8662182001269478||2569807482|2|58|0|1|12345678911|175368270|326008244498190332|326008244498190332|326008244498190332";
-        String[] data = xdrLing.split("\\|", -1);
+        String xdrLine = "2024-11-05 15:57:48.734|2024-11-05 15:57:49.621|111|3|14|4659|4799|17759|45571||||460078457850390||8662182001269478||2569807482|2|58|0|1|12345678911|175368270|326008244498190332|326008244498190332|326008244498190332";
+        String[] data = xdrLine.split("\\|", -1);
         try {
             AesEncodeAdapter adapter = new AesEncodeAdapter(); // 直接实例化
             // 使用不同长度的密钥进行测试
@@ -159,7 +159,7 @@ public class AesEncodeAdapter extends DataFilterAdapter {
 
             System.out.println("程序运行结果: " + re);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
         }
     }
 }

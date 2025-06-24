@@ -188,7 +188,7 @@ public class TimeFormatAdapter extends DataFilterAdapter {
             }
             return result;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
             return null;
         }
     }
@@ -199,7 +199,7 @@ public class TimeFormatAdapter extends DataFilterAdapter {
         try {
             return handleBuffer(data, todo, columnX, service, ",MS,");
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
             return null;
         }
     }
@@ -253,12 +253,12 @@ public class TimeFormatAdapter extends DataFilterAdapter {
                 System.out.println(re);
             } catch (Exception ex43) {
                 System.out.println("ssss");
-                ex43.printStackTrace();
+                log.error("Exception occurred while running main()", ex43);
             }
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
         }
 
 

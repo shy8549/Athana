@@ -59,7 +59,7 @@ public class ColConcat extends DataFilterAdapter {
             String re = adapter.handleBuffer(data, "100.89.3.226", 0, "MLTE_S1U_HTTP", "");
             System.out.println(re);
         }catch (Exception e){
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
         }
     }
 

@@ -2,6 +2,8 @@ package com.nsn.bighead.glassfish.filterse.adapter;
 
 import com.nsn.bighead.glassfish.filterse.handler.DataFilterAdapter;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 /**
@@ -14,6 +16,7 @@ public class SubStrTool extends DataFilterAdapter {
     private static final long serialVersionUID = -4038199637215448599L;
     private int sub_start = -1;
     private int sub_end = -1;
+    private static final Logger log = LogManager.getLogger(SubStrTool.class);
 
     /**
      *
@@ -66,7 +69,7 @@ public class SubStrTool extends DataFilterAdapter {
 
             System.out.println(re);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
         }
     }
 

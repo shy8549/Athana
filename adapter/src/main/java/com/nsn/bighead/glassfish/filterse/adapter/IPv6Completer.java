@@ -108,7 +108,7 @@ public class IPv6Completer extends DataFilterAdapter {
             String re = adapter.handleBuffer(data, "2001:db8:85a3::8a2e:370:7334", 0, "MLTE_S1U_HTTP", "");
             System.out.println(re);
         }catch (Exception e){
-            e.printStackTrace();
+            log.error("Exception occurred while running main()", e);
         }
     }
 
