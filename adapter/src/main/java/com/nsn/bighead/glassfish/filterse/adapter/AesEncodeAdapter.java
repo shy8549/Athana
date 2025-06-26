@@ -151,9 +151,9 @@ public class AesEncodeAdapter extends DataFilterAdapter {
         try {
             AesEncodeAdapter adapter = new AesEncodeAdapter(); // 直接实例化
             // 使用不同长度的密钥进行测试
-            adapter.init("SXYD_PWD"); // 原始8位密钥，处理后为 "SXYD_PWD||||||||"
-//            adapter.init("hljydydhbz_sjjm@"); // 16位密钥，不需要处理
-            // adapter.init("thisisaverylongkeythatexceedssixteencharacters"); // 超过16位，处理后截取前16位
+//            adapter.init("SXYD_PWD"); // 原始8位密钥，处理后为 "SXYD_PWD||||||||"
+            adapter.init("hljydydhbz_sjjm@"); // 16位密钥，不需要处理
+//            adapter.init("thisisaverylongkeythatexceedssixteencharacters"); // 超过16位，处理后截取前16位
 //            String re = adapter.handleBuffer(data, "12345678911", 21, "MLTE_S1U_HTTP", null);
             String re = adapter.handleBuffer(data, "13796617016", 21, "MLTE_S1U_HTTP", null);
 

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<!-- filter log with level -->
+<log4j:configuration>
+
+    <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd_HH:mm:ss,SSS} %-5p [%c] %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="DEBUG" />
+            <param name="LevelMax" value="FATAL" />
+        </filter>
+    </appender>
+
+    <!-- fatal level -->
+    <appender name="FATAL_ASYNC" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="FATAL_FILELOG" />
+    </appender>
+
+    <appender name="FATAL_FILELOG"
+              class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="ImmediateFlush" value="true"></param>
+        <param name="File" value="./logs/fatal.log" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd_HH:mm:ss,SSS} %-5p [%c] %m%n"></param>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="FATAL" />
+            <param name="LevelMax" value="FATAL" />
+        </filter>
+    </appender>
+
+    <!-- error level -->
+    <appender name="ERROR_ASYNC" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="ERROR_FILELOG" />
+    </appender>
+
+    <appender name="ERROR_FILELOG"
+              class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="ImmediateFlush" value="true"></param>
+        <param name="File" value="./logs/error.log" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd_HH:mm:ss,SSS} %-5p [%c] %m%n"></param>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="ERROR" />
+            <param name="LevelMax" value="ERROR" />
+        </filter>
+    </appender>
+
+    <!-- warn level -->
+    <appender name="WARN_ASYNC" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="WARN_FILELOG" />
+    </appender>
+    <appender name="WARN_FILELOG"
+              class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="ImmediateFlush" value="true"></param>
+        <param name="File" value="./logs/warn.log" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd_HH:mm:ss,SSS} %-5p [%c] %m%n"></param>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="WARN" />
+            <param name="LevelMax" value="WARN" />
+        </filter>
+    </appender>
+
+    <!-- info level -->
+    <appender name="INFO_ASYNC" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="INFO_FILELOG" />
+    </appender>
+    <appender name="INFO_FILELOG"
+              class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="ImmediateFlush" value="true"></param>
+        <param name="File" value="./logs/info.log" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd_HH:mm:ss,SSS} %-5p [%c] %m%n"></param>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="INFO" />
+            <param name="LevelMax" value="INFO" />
+        </filter>
+    </appender>
+
+    <!-- debug level -->
+    <appender name="DEBUG_ASYNC" class="org.apache.log4j.AsyncAppender">
+        <appender-ref ref="DEBUG_FILELOG" />
+    </appender>
+    <appender name="DEBUG_FILELOG"
+              class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="ImmediateFlush" value="true"></param>
+        <param name="File" value="./logs/debug.log" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd_HH:mm:ss,SSS} %-5p [%c] %m%n"></param>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="DEBUG" />
+            <param name="LevelMax" value="DEBUG" />
+        </filter>
+    </appender>
+
+    <!-- standard out -->
+    <!--<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd_HH:mm:ss,SSS} %-5p [%c] %m%n"></param>
+        </layout>
+    </appender>-->
+
+    <!-- shield filter -->
+    <!-- Stream platform debug. -->
+    <category name="com.nokia.sai" additivity="true">
+        <level value="debug" />
+    </category>
+
+    <!-- Get kafka connect error info, hosts had not config. -->
+    <!--category name="org.apache.kafka.clients" additivity="true">
+            <level value="debug" />
+    </category-->
+
+    <!-- root -->
+    <root>
+        <priority value="info" />
+        <appender-ref ref="stdout" />
+        <appender-ref ref="DEBUG_ASYNC" />
+        <appender-ref ref="INFO_ASYNC" />
+        <appender-ref ref="WARN_ASYNC" />
+        <appender-ref ref="ERROR_ASYNC" />
+        <appender-ref ref="FATAL_ASYNC" />
+    </root>
+
+
+</log4j:configuration>
